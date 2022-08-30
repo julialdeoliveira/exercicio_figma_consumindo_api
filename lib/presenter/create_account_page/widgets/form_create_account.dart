@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'body_create_page.dart';
@@ -11,7 +10,8 @@ class FormCreateAccount extends StatelessWidget {
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
-  }) : _formKey = formKey, super(key: key);
+  })  : _formKey = formKey,
+        super(key: key);
 
   final GlobalKey<FormState> _formKey;
   final TextEditingController nameController;
@@ -25,9 +25,14 @@ class FormCreateAccount extends StatelessWidget {
       key: _formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: BodyCreatePage(nameController: nameController, emailController: emailController, passwordController: passwordController, confirmPasswordController: confirmPasswordController),
+        child: BodyCreatePage(
+          nameController: nameController,
+          emailController: emailController,
+          passwordController: passwordController,
+          confirmPasswordController: confirmPasswordController,
+          formKey: _formKey,
+        ),
       ),
     );
   }
 }
-

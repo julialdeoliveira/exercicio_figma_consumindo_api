@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ElevatedButtonApp extends StatelessWidget {
   final Widget route;
   final String title;
+  final formKey = GlobalKey<FormState>();
 
-  const ElevatedButtonApp({
+   ElevatedButtonApp({
     Key? key,
     required this.route,
     required this.title,
@@ -14,6 +15,7 @@ class ElevatedButtonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
+      
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => route),
         );
