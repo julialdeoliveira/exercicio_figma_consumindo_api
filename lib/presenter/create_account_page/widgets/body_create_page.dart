@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:initial_page/models/user_model.dart';
+import 'package:initial_page/presenter/sucess_page/sucess_page.dart';
 import 'package:initial_page/repositories/user_repository.dart';
 import 'package:initial_page/shared/text_form_field_email.dart';
 
@@ -11,7 +13,9 @@ import '../../../shared/text_form_field_confirm_password.dart';
 import '../../login_page/login_page.dart';
 import '../../login_page/widgets/or_use_text.dart';
 
-class BodyCreatePage extends StatelessWidget {
+final emailProvider = StateProvider<String>((ref) => '');
+
+class BodyCreatePage extends HookConsumerWidget {
   const BodyCreatePage({
     Key? key,
     required this.formKey,
@@ -28,7 +32,9 @@ class BodyCreatePage extends StatelessWidget {
   final TextEditingController confirmPasswordController;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final email = ref.watch(emailProvider.state);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -53,14 +59,25 @@ class BodyCreatePage extends StatelessWidget {
           secondController: passwordController,
         ),
         const SizedBox(height: 30),
-        ElevatedButton(onPressed: (){
-          if (formKey.currentState!.validate()){
-            UserModel model = UserModel(id: 0, name: nameController.text, email: emailController.text, password: passwordController.text,);
-            UserRepository.createUser(model);
-          }
-          
-
-        }, child: const Text('SIGN UP')),
+        ElevatedButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                ref.watch(emailProvider.notifier).state = emailController.text;
+                UserModel model = UserModel(
+                  id: 0,
+                  name: nameController.text,
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
+                UserRepository.createUser(model);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SucessPage(),
+                  ),
+                );
+              }
+            },
+            child: const Text('SIGN UP')),
         // ElevatedButtonApp(
         //   route: const SucessPage(),
         //   title: 'SIGN UP',

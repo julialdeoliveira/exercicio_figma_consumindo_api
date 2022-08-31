@@ -33,4 +33,15 @@ class UserRepository {
     );
     return null;
   }
-}
+
+  // Future <UserModel> loginUser(String email, String password) async{
+  //   final dio = Dio();
+  //   final reponse = await dio.post(
+  //     'http://192.168.0.138/api/Usuario',
+  //     d
+  //   );
+
+  }
+
+
+
