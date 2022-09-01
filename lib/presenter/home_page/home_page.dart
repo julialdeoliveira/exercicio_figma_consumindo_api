@@ -9,9 +9,11 @@ class HomePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
     return Scaffold(
+      backgroundColor: Colors.deepPurple,
       body: Center(
         child: Text(
           "Olá ${user!.name}",
+          style: const TextStyle(fontSize: 40, color: Colors.white),
         ),
       ),
     );
