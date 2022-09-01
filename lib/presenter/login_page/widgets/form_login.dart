@@ -16,11 +16,13 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: BodyLoginPage(emailController: emailController, passwordController: passwordController),
+    return SingleChildScrollView(
+      child: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: BodyLoginPage(emailController: emailController, passwordController: passwordController, formKey: _formKey,),
+        ),
       ),
     );
   }

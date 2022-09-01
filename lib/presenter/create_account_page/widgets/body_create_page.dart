@@ -5,6 +5,7 @@ import 'package:initial_page/presenter/sucess_page/sucess_page.dart';
 import 'package:initial_page/repositories/user_repository.dart';
 import 'package:initial_page/shared/text_form_field_email.dart';
 
+import '../../../riverpod/email_provider.dart';
 import '../../../shared/big_title_app.dart';
 import '../../../shared/row_icon.dart';
 import '../../../shared/text_button_app.dart';
@@ -13,7 +14,7 @@ import '../../../shared/text_form_field_confirm_password.dart';
 import '../../login_page/login_page.dart';
 import '../../login_page/widgets/or_use_text.dart';
 
-final emailProvider = StateProvider<String>((ref) => '');
+
 
 class BodyCreatePage extends HookConsumerWidget {
   const BodyCreatePage({

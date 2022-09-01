@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:initial_page/presenter/create_account_page/widgets/body_create_page.dart';
+
+import '../../../riverpod/email_provider.dart';
 
 class EmailText extends HookConsumerWidget {
   const EmailText({
