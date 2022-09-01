@@ -12,7 +12,7 @@ class HomePage extends HookConsumerWidget {
       backgroundColor: Colors.deepPurple,
       body: Center(
         child: Text(
-          "Olá ${user!.name}",
+          "Olá, ${user!.name}",
           style: const TextStyle(fontSize: 40, color: Colors.white),
         ),
       ),
