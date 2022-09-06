@@ -23,6 +23,32 @@ class LogonAuthenticator {
         user = UserModel.fromMap(jsonDecode(response.data));
         return user;
       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
     } catch (e) {
       debugPrint('$e');
     }
